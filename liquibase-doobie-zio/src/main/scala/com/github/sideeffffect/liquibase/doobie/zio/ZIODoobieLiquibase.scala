@@ -1,7 +1,6 @@
 package com.github.sideeffffect.liquibase.doobie.zio
 
 import com.github.sideeffffect.liquibase.core.CoreLiquibase
-import com.github.sideeffffect.liquibase.doobie.DoobieLiquibase
 import com.zaxxer.hikari.metrics.prometheus.PrometheusHistogramMetricsTrackerFactory
 import doobie.Transactor
 import doobie.hikari.HikariTransactor
@@ -10,7 +9,7 @@ import zio.interop.catz._
 
 import java.sql.Connection
 
-object ZIODoobieLiquibase extends DoobieLiquibase[Task, RIO[Scope, *]] {
+object ZIODoobieLiquibase {
 
   def runMigration(connection: Connection, changeLogFile: String): Task[Unit] =
     ZIO.attemptBlocking { CoreLiquibase.runMigration(connection, changeLogFile) }

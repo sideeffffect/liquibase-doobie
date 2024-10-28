@@ -25,8 +25,9 @@ lazy val `liquibase-core` = project
     libraryDependencies ++= List(
       Dependencies.liquibase,
     ),
+    crossPaths := false,
+    autoScalaLibrary := false,
   )
-  .enablePlugins(BuildInfoPlugin)
 
 lazy val `liquibase-doobie` = project
   .settings(commonSettings)
