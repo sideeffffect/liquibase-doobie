@@ -3,6 +3,8 @@ import com.typesafe.tools.mima.core._
 Global / onChangedBuildSource := ReloadOnSourceChanges
 ThisBuild / turbo := true
 
+ThisBuild / versionPolicyIntention := Compatibility.None
+
 lazy val root = project
   .in(file("."))
   .settings(commonSettings)
