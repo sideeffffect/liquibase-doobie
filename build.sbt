@@ -75,7 +75,6 @@ lazy val `liquibase-doobie-zio-config` = project
   .enablePlugins(BuildInfoPlugin)
 
 lazy val commonSettings: List[Def.Setting[_]] = DecentScala.decentScalaSettings ++ List(
-  versionPolicyIntention := Compatibility.None,
   crossScalaVersions -= DecentScala.decentScalaVersion212,
   organization := "com.github.sideeffffect",
   homepage := Some(url("https://github.com/sideeffffect/zio-doobie")),
