@@ -4,7 +4,6 @@
 | --- | --- |
 | [![Build Status][Badge-GitHubActions]][Link-GitHubActions] | [![Release Artifacts][Badge-SonatypeReleases]][Link-SonatypeReleases] |
 
-
 ZIO and Cats Effect wrappers for [Doobie](https://tpolecat.github.io/doobie/) with [Liquibase](https://www.liquibase.org/).
 
 ## ZIO
