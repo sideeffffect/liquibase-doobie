@@ -125,7 +125,13 @@ lazy val commonSettings: List[Def.Setting[_]] = DecentScala.decentScalaSettings 
       "com.github.sideeffffect.liquibase.doobie.pureconfig.package.configConvertHikari",
     ),
     ProblemFilters.exclude[DirectMissingMethodProblem](
-      "com.github.sideeffffect.liquibase.doobie.pureconfig.package.configConvertHikari",
+      "com.github.sideeffffect.liquibase.doobie.zio.config.package.durationDeriveConfig",
+    ),
+    ProblemFilters.exclude[DirectMissingMethodProblem](
+      "com.github.sideeffffect.liquibase.doobie.zio.config.package.hikariDescriptor",
+    ),
+    ProblemFilters.exclude[DirectMissingMethodProblem](
+      "com.github.sideeffffect.liquibase.doobie.pureconfig.package.configConvertTransactionIsolation",
     ),
   ),
 )
