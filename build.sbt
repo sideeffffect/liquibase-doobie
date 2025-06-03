@@ -39,11 +39,12 @@ lazy val `liquibase-doobie` = project
   )
   .enablePlugins(BuildInfoPlugin)
 
-lazy val `liquibase-doobie-pureconfig` = project
+lazy val `doobie-pureconfig` = project
   .settings(commonSettings)
-  .dependsOn(`liquibase-doobie`)
   .settings(
-    libraryDependencies ++= {
+    libraryDependencies ++= List(
+      Dependencies.doobie,
+    ) ++ {
       CrossVersion.partialVersion(scalaVersion.value) match {
         case Some((2, _)) =>
           List(Dependencies.pureconfigGeneric)
@@ -54,12 +55,30 @@ lazy val `liquibase-doobie-pureconfig` = project
   )
   .enablePlugins(BuildInfoPlugin)
 
+lazy val `liquibase-doobie-pureconfig` = project
+  .settings(commonSettings)
+  .dependsOn(
+    `doobie-pureconfig`,
+    `liquibase-doobie`,
+  )
+  .enablePlugins(BuildInfoPlugin)
+
 lazy val `liquibase-doobie-zio` = project
   .settings(commonSettings)
   .dependsOn(`liquibase-doobie`)
   .settings(
     libraryDependencies ++= List(
       Dependencies.zioCats,
+    ),
+  )
+  .enablePlugins(BuildInfoPlugin)
+
+lazy val `doobie-zio-config` = project
+  .settings(commonSettings)
+  .settings(
+    libraryDependencies ++= List(
+      Dependencies.doobie,
+      Dependencies.zioConfigMagnolia,
     ),
   )
   .enablePlugins(BuildInfoPlugin)
@@ -99,6 +118,21 @@ lazy val commonSettings: List[Def.Setting[_]] = DecentScala.decentScalaSettings 
     IgnoredPackage("java.sql"), // https://github.com/tpolecat/doobie/pull/1632
   ),
   mimaBinaryIssueFilters ++= List(
+    ProblemFilters.exclude[DirectMissingMethodProblem](
+      "com.github.sideeffffect.liquibase.doobie.zio.config.package.hikariDeriveConfig",
+    ),
+    ProblemFilters.exclude[DirectMissingMethodProblem](
+      "com.github.sideeffffect.liquibase.doobie.pureconfig.package.configConvertHikari",
+    ),
+    ProblemFilters.exclude[DirectMissingMethodProblem](
+      "com.github.sideeffffect.liquibase.doobie.zio.config.package.durationDeriveConfig",
+    ),
+    ProblemFilters.exclude[DirectMissingMethodProblem](
+      "com.github.sideeffffect.liquibase.doobie.zio.config.package.hikariDescriptor",
+    ),
+    ProblemFilters.exclude[DirectMissingMethodProblem](
+      "com.github.sideeffffect.liquibase.doobie.pureconfig.package.configConvertTransactionIsolation",
+    ),
   ),
 )
 
