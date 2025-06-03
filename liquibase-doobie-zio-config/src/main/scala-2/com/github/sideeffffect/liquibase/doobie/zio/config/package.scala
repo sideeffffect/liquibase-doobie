@@ -1,6 +1,7 @@
 package com.github.sideeffffect.liquibase.doobie.zio
 
 import _root_.zio.config.magnolia._
+
 import scala.concurrent.duration.Duration
 import scala.jdk.DurationConverters._
 
