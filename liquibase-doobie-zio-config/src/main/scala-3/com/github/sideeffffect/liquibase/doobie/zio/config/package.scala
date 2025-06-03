@@ -6,10 +6,11 @@ import scala.concurrent.duration.Duration
 import scala.jdk.DurationConverters.*
 
 package object config {
-  private[config] implicit lazy val durationDeriveConfig: DeriveConfig[Duration] =
-    DeriveConfig[java.time.Duration].map(_.toScala)
-  private[config]  implicit lazy val hikariDescriptor: DeriveConfig[_root_.doobie.hikari.Config] =
+  implicit lazy val configDescriptor: DeriveConfig[com.github.sideeffffect.liquibase.doobie.Config] = {
+    implicit val durationDeriveConfig: DeriveConfig[Duration] =
+      DeriveConfig[java.time.Duration].map(_.toScala)
+    implicit val hikariDescriptor: DeriveConfig[_root_.doobie.hikari.Config] =
+      DeriveConfig.derived
     DeriveConfig.derived
-  implicit lazy val configDescriptor: DeriveConfig[com.github.sideeffffect.liquibase.doobie.Config] =
-    DeriveConfig.derived
+  }
 }
