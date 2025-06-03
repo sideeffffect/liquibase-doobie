@@ -1,4 +1,4 @@
-package com.github.sideeffffect.liquibase.doobie.zio
+package com.github.sideeffffect.doobie.zio
 
 import _root_.zio.config.magnolia.*
 
@@ -8,8 +8,6 @@ import scala.jdk.DurationConverters.*
 package object config {
   private[config] implicit lazy val durationDeriveConfig: DeriveConfig[Duration] =
     DeriveConfig[java.time.Duration].map(_.toScala)
-  private[config]  implicit lazy val hikariDescriptor: DeriveConfig[_root_.doobie.hikari.Config] =
-    DeriveConfig.derived
-  implicit lazy val configDescriptor: DeriveConfig[com.github.sideeffffect.liquibase.doobie.Config] =
+  implicit lazy val hikariDescriptor: DeriveConfig[_root_.doobie.hikari.Config] =
     DeriveConfig.derived
 }
