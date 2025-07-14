@@ -137,3 +137,5 @@ lazy val commonSettings: List[Def.Setting[_]] = DecentScala.decentScalaSettings 
 )
 
 addCommandAlias("ci", "; check; +publishLocal")
+
+ThisBuild / versionPolicyIntention := Compatibility.None
