@@ -120,6 +120,7 @@ lazy val commonSettings: List[Def.Setting[_]] = DecentScala.decentScalaSettings 
   ),
   mimaBinaryIssueFilters ++= List(
   ),
+  versionPolicyIntention := Compatibility.None,
 )
 
 addCommandAlias("ci", "; check; +publishLocal")
