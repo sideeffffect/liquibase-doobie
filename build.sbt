@@ -117,24 +117,8 @@ lazy val commonSettings: List[Def.Setting[_]] = DecentScala.decentScalaSettings 
   ),
   missinglinkIgnoreDestinationPackages ++= List(
     IgnoredPackage("org.osgi.framework"),
-    IgnoredPackage("java.sql"), // https://github.com/tpolecat/doobie/pull/1632
   ),
   mimaBinaryIssueFilters ++= List(
-    ProblemFilters.exclude[DirectMissingMethodProblem](
-      "com.github.sideeffffect.liquibase.doobie.zio.config.package.hikariDeriveConfig",
-    ),
-    ProblemFilters.exclude[DirectMissingMethodProblem](
-      "com.github.sideeffffect.liquibase.doobie.pureconfig.package.configConvertHikari",
-    ),
-    ProblemFilters.exclude[DirectMissingMethodProblem](
-      "com.github.sideeffffect.liquibase.doobie.zio.config.package.durationDeriveConfig",
-    ),
-    ProblemFilters.exclude[DirectMissingMethodProblem](
-      "com.github.sideeffffect.liquibase.doobie.zio.config.package.hikariDescriptor",
-    ),
-    ProblemFilters.exclude[DirectMissingMethodProblem](
-      "com.github.sideeffffect.liquibase.doobie.pureconfig.package.configConvertTransactionIsolation",
-    ),
   ),
 )
 
