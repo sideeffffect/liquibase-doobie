@@ -17,6 +17,8 @@ lazy val root = project
     `liquibase-doobie-pureconfig`,
     `liquibase-doobie-zio`,
     `liquibase-doobie-zio-config`,
+    `doobie-pureconfig`,
+    `doobie-zio-config`,
   )
 
 lazy val `liquibase-core` = project
