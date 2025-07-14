@@ -134,7 +134,6 @@ lazy val commonSettings: List[Def.Setting[_]] = DecentScala.decentScalaSettings 
       "com.github.sideeffffect.liquibase.doobie.pureconfig.package.configConvertTransactionIsolation",
     ),
   ),
-  versionPolicyIntention := Compatibility.None,
 )
 
 addCommandAlias("ci", "; check; +publishLocal")
