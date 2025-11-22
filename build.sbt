@@ -121,6 +121,7 @@ lazy val commonSettings: List[Def.Setting[_]] = DecentScala.decentScalaSettings 
   mimaBinaryIssueFilters ++= List(
   ),
   scalacOptions += "-Wconf:cat=lint-infer-any&msg=kind-polymorphic:s", // https://github.com/scala/bug/issues/13128
+  ThisBuild / versionPolicyIntention := Compatibility.None,
 )
 
 addCommandAlias("ci", "; check; +publishLocal")
